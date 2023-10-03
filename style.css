@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+
 :root {
     --primary: #6b59d3;
     --hover-primary: #5e4eb9;
     --white: #fff;
     --dot-background: #ececec;
+    --border: #ccc;
+    --check: #2ecc71;
+    --xmark: #dc3545;
 }
 
 * {
@@ -45,11 +50,12 @@ body {
     justify-content: space-between;
 }
 
-form .user-details .input-box,
-form .room-details .input-box,
-form .payment-details .input-box {
+.user-details .input-box,
+.room-details .input-box,
+.payment-details .input-box {
     margin-bottom: 15px;
     width: calc(100% / 2 - 20px);
+    position: relative;
 }
 
 .user-details .input-box .details,
@@ -67,9 +73,22 @@ form .payment-details .input-box {
     width: 100%;
     outline: none;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border);
     padding-left: 15px;
     font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.container form #prefrooms {
+    height: 150px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    padding-left: 15px;
+    font-size: 16px;
+    resize: none;
+    padding-top: 10px;
     transition: all 0.3s ease;
 }
 
@@ -87,7 +106,8 @@ fieldset {
 .room-details .input-box input:focus,
 .payment-details .input-box input:focus,
 #select-country:focus,
-#select-room:focus {
+#select-room:focus,
+.container form #prefrooms:focus {
     border-color: var(--primary);
 }
 
@@ -97,7 +117,8 @@ fieldset {
 #select-country:hover,
 #select-room:hover,
 .button:hover,
-.radio-payment:hover {
+.radio-payment:hover,
+#prefrooms:hover {
     transform: scale(1.01);
 }
 
@@ -131,20 +152,13 @@ form .payment-details .pay-category {
 }
 
 .radio-payment {
-    border: 1px solid #ccc;
+    border: 1px solid var(--border);
     border-radius: 5px;
     padding: 5px 10px;
 }
 
 .radio-payment:hover {
     cursor: pointer;
-}
-
-#dot01:checked~.pay-category label .one,
-#dot02:checked~.pay-category label .two,
-#dot03:checked~.pay-category label .three {
-    border-color: var(--dot-background);
-    background: var(--primary);
 }
 
 form .payment-details input[type="radio"] {
@@ -181,10 +195,50 @@ form .button button:hover {
     width: 100%;
     outline: none;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border);
     padding-left: 15px;
     font-size: 16px;
     transition: all 0.3s ease;
+}
+
+/* Validation Style */
+.validation i {
+    visibility: hidden;
+    position: absolute;
+    right: 10px;
+    top: 41px;
+    font-size: 18px;
+}
+
+.validation small {
+    visibility: hidden;
+    border: 1px solid;
+    border-top: 3px solid transparent;
+    padding: 5px 15px;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-top: 1px;
+}
+
+.input-box.success .validation i.fa-circle-check {
+    visibility: visible;
+    color: var(--check);
+}
+
+.input-box.error .validation i.fa-circle-xmark {
+    visibility: visible;
+    color: var(--xmark);
+}
+
+.input-box.error .validation small {
+    visibility: visible;
+    color: var(--xmark);
+    display: block;
+}
+
+.input-box.error input[type="date"] + .validation i.fa-circle-xmark,
+.input-box.success input[type="date"] + .validation i.fa-circle-check {
+    right: 25px
 }
 
 @media (max-width: 584px) {

@@ -11,23 +11,38 @@
 <body>
 	<div class="container">
 		<div class="title">Registro de Hotel</div>
-		<form action="https://www.w3schools.com/action_page.php" method="post">
+		<form id="form">
 			<fieldset class="user-details">
 				<div class="input-box">
 					<span class="details" for="t_name">Nome Completo</span>
-					<input type="text" name="t_name" placeholder="Digite seu nome completo" required>
+					<input type="text" name="t_name" placeholder="Digite seu nome completo" id="name">
+					<div class="validation">
+						<i class="fa-regular fa-circle-check"></i>
+						<i class="fa-regular fa-circle-xmark"></i>
+						<small>error_message</small>
+					</div>
 				</div>
 				<div class="input-box">
 					<span class="details" for="e_email">Endereço de E-mail</span>
-					<input type="email" name="e_email" placeholder="Digite seu e-mail" required>
+					<input type="email" name="e_email" placeholder="Digite seu e-mail" id="email">
+					<div class="validation">
+						<i class="fa-regular fa-circle-check"></i>
+						<i class="fa-regular fa-circle-xmark"></i>
+						<small>error_message</small>
+					</div>
 				</div>
 				<div class="input-box">
 					<span class="details" for="n_tel">Número de Telefone</span>
-					<input type="tel" name="t_tel" placeholder="Digite seu número de telefone" required>
+					<input type="tel" name="t_tel" placeholder="Digite seu número de telefone" id="tel">
+					<div class="validation">
+						<i class="fa-regular fa-circle-check"></i>
+						<i class="fa-regular fa-circle-xmark"></i>
+						<small>error_message</small>
+					</div>
 				</div>
 				<div class="input-box">
 					<span class="details">País de Origem</span>
-					<select name="nationality" id="select-country" required>
+					<select name="nationality" id="select-country">
 						<option value="br">Brazil</option>
 						<option value="us">USA</option>
 						<option value="fr">France</option>
@@ -44,19 +59,34 @@
 			<fieldset class="room-details">
 				<div class="input-box">
 					<span class="details" for="d_check-in">Data de Check-in</span>
-					<input type="date" name="d_check-in" placeholder="Digite a data de check-in" required>
+					<input type="date" name="d_check-in" placeholder="Digite a data de check-in" id="checkin">
+					<div class="validation">
+						<i class="fa-regular fa-circle-check"></i>
+						<i class="fa-regular fa-circle-xmark"></i>
+						<small>error_message</small>
+					</div>
 				</div>
 				<div class="input-box">
 					<span class="details" for="d_check-out">Data de Check-out</span>
-					<input type="date" name="d_check-out" placeholder="Digite a data de check-out" required>
+					<input type="date" name="d_check-out" placeholder="Digite a data de check-out" id="checkout">
+					<div class="validation">
+						<i class="fa-regular fa-circle-check"></i>
+						<i class="fa-regular fa-circle-xmark"></i>
+						<small>error_message</small>
+					</div>
 				</div>
 				<div class="input-box">
 					<span class="details" for="n_num-rooms">Número de Quartos Reservados</span>
-					<input type="number" name="n_num-rooms" placeholder="Digite o nº de quartos reservados" required>
+					<input type="number" name="n_num-rooms" placeholder="Digite o nº de quartos reservados" id="rooms">
+					<div class="validation">
+						<i class="fa-regular fa-circle-check"></i>
+						<i class="fa-regular fa-circle-xmark"></i>
+						<small>error_message</small>
+					</div>
 				</div>
 				<div class="input-box">
 					<span class="details">Tipo de Quarto</span>
-					<select name="room" id="select-room" required>
+					<select name="room" id="select-room">
 						<option value="single">Single</option>
 						<option value="double">Double</option>
 						<option value="suite">Suite</option>
@@ -64,14 +94,20 @@
 				</div>
 				<div class="input-box">
 					<span class="details" for="t_pref-rooms">Preferências Especiais</span>
-					<input type="text" name="t_pref-rooms" placeholder="Digite alguma preferência especial">
+					<textarea name="t_pref-rooms" id="prefrooms" cols="30" rows="10"
+						placeholder="Digite alguma preferência especial"></textarea>
 				</div>
 			</fieldset>
 			<fieldset class="payment-details">
-				<span class="payment-title">Forma de Pagamento</span>
-				<input type="radio" name="payment" id="dot01" value="boleto" required>
-				<input type="radio" name="payment" id="dot02" value="cartao" required>
-				<input type="radio" name="payment" id="dot03" value="pix" required>
+				<span class="payment-title" id="payment">Forma de Pagamento</span>
+				<input type="radio" name="payment" id="dot01" value="boleto">
+				<input type="radio" name="payment" id="dot02" value="cartao">
+				<input type="radio" name="payment" id="dot03" value="pix">
+				<div class="validation">
+					<i class="fa-regular fa-circle-check"></i>
+					<i class="fa-regular fa-circle-xmark"></i>
+					<small>error_message</small>
+				</div>
 				<div class="pay-category">
 					<label for="dot01" class="radio-payment">
 						<span class="dot one"></span>
@@ -86,17 +122,17 @@
 						<span class="payment">Pix</span>
 					</label>
 				</div>
-				<div class="input-box">
+				<div class="input-box" id="payment">
 					<span class="details" for="n_card-number">Número do Cartão de Crédito</span>
-					<input type="number" name="n_creditnumber" placeholder="Digite os números do cartão" required>
+					<input type="number" name="n_creditnumber" placeholder="Digite os números do cartão">
 				</div>
 				<div class="input-box">
 					<span class="details" for="m_card-date">Data de Validade do Cartão</span>
-					<input type="month" name="m_card-date" placeholder="Digite a data de validade" required>
+					<input type="month" name="m_card-date" placeholder="Digite a data de validade">
 				</div>
 				<div class="input-box">
 					<span class="details" for="n_card-security">Código de Segurança do Cartão</span>
-					<input type="number" name="n_card-security" placeholder="Digite o código de segurança" required>
+					<input type="number" name="n_card-security" placeholder="Digite o código de segurança">
 				</div>
 			</fieldset>
 			<div class="button">
@@ -104,6 +140,8 @@
 			</div>
 		</form>
 	</div>
+
+	<script src="./script.js"></script>
 </body>
 
 </html>
