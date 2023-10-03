@@ -28,6 +28,7 @@ Um formulário de hotel feito a pedido do módulo Front End Estático, esse proj
 ## Futuras melhorias
 
 ❎ Separar os registros em multi steps
+
 ✅ Adicionar validações utilizando JS
 
 
